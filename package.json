@@ -1,0 +1,28 @@
+{
+  "name": "backend_atividade2_ppi_ads_2025",
+  "version": "1.0.0",
+  "description": "Projeto backend ADS 2025",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gameprei/backend_Atividade2_PPI_ADS_2025.git"
+  },
+  "keywords": [
+    "Backend",
+    "node",
+    "javascript",
+    "mySQL"
+  ],
+  "author": "Luiz Henrique Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gameprei/backend_Atividade2_PPI_ADS_2025/issues"
+  },
+  "homepage": "https://github.com/gameprei/backend_Atividade2_PPI_ADS_2025#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
