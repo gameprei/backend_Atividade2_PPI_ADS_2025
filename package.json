@@ -1,6 +1,7 @@
 {
   "name": "backend_atividade2_ppi_ads_2025",
   "version": "1.0.0",
+  "type": "module",
   "description": "Projeto backend ADS 2025",
   "main": "index.js",
   "scripts": {
