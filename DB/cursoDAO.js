@@ -37,7 +37,7 @@ export default class CursoDAO {
 
     async consultar(){
         const connection = await connect();
-        const sql = "SELECT * FROM curso ORDER BY nome";
+        const sql = "SELECT * FROM curso ORDER BY id";
         const [rows] = await connection.query(sql);
         await connection.release();
 
