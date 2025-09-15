@@ -1,7 +1,7 @@
 import CursoDAO from "../DB/cursoDAO.js";
 
+
 export default class Curso {
-    
     #id;
     #nome;
     #descricao;
@@ -14,15 +14,14 @@ export default class Curso {
         this.#descricao = descricao;
         this.#cargaHoraria = cargaHoraria;
         this.#valor = valor;
-    }
 
-    get id() {
+    } get id() {
         return this.#id;
     }
     set id(id) {
         this.#id = id;
     }
-    get nome() { 
+    get nome() {
         return this.#nome;
     }
     set nome(nome) {
@@ -30,7 +29,7 @@ export default class Curso {
     }
     get descricao() {
         return this.#descricao;
-    }  
+    }
     set descricao(descricao) {
         this.#descricao = descricao;
     }
@@ -48,12 +47,11 @@ export default class Curso {
     }
 
     toString() {
-        return `
-            ID: ${this.#id}\n 
-            Nome: ${this.#nome}\n 
-            Descrição: ${this.#descricao}\n 
-            Carga Horária: ${this.#cargaHoraria}\n 
-            Valor: ${this.#valor}\n`;
+        return `\n ID: ${this.#id}\n \n 
+        Nome: ${this.#nome}\n \n 
+        Descrição: ${this.#descricao}\n \n 
+        Carga Horária: ${this.#cargaHoraria}\n \n 
+        Valor: ${this.#valor}\n`;
     }
 
     toJSON() {
@@ -74,12 +72,17 @@ export default class Curso {
         const cursoDAO = new CursoDAO();
         await cursoDAO.alterar(this);
     }
-    async excluir() {
+   
+    async excluir(id) {
         const cursoDAO = new CursoDAO();
-        await cursoDAO.excluir(this.#id);
+        if (id !== undefined && id !== null) {
+            await cursoDAO.excluir(id);
+        } else {
+            await cursoDAO.excluir(this.#id);
+        }
     }
-    async consultar() {
+    async consultar(id) { 
         const cursoDAO = new CursoDAO();
-        return await cursoDAO.consultar(this.#id);
+        return await cursoDAO.consultar(id);
     }
 }
