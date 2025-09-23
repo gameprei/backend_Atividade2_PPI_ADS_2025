@@ -6,8 +6,8 @@ export default class CursoDAO {
     async gravar(curso) {
         if (curso instanceof Curso) {
             const connection = await connect();
-            const sql = "INSERT INTO curso (nome, descricao, carga_horaria, valor) VALUES (?, ?, ?, ?)";
-            const values = [curso.nome, curso.descricao, curso.cargaHoraria, curso.valor];
+            const sql = "INSERT INTO curso (nome, descricao, carga_horaria, instrutor, nivel, vagas, valor) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            const values = [curso.nome, curso.descricao, curso.cargaHoraria, curso.instrutor, curso.nivel, curso.vagas, curso.valor];
             const [result] = await connection.query(sql, values);
             connection.release();
             curso.id = result.insertId;
@@ -17,8 +17,8 @@ export default class CursoDAO {
     async alterar(curso) {
         if (curso instanceof Curso) {
             const connection = await connect();
-            const sql = "UPDATE curso SET nome = ?, descricao = ?, carga_horaria = ?, valor = ? WHERE id = ?";
-            const values = [curso.nome, curso.descricao, curso.cargaHoraria, curso.valor, curso.id];
+            const sql = "UPDATE curso SET nome = ?, descricao = ?, carga_horaria = ?, instrutor = ?, nivel = ?, vagas =?, valor = ? WHERE id = ?";
+            const values = [curso.nome, curso.descricao, curso.cargaHoraria, curso.instrutor, curso.nivel, curso.vagas, curso.valor, curso.id];
             await connection.execute(sql, values);
             connection.release();
         }
@@ -53,6 +53,9 @@ export default class CursoDAO {
                 row.NOME,
                 row.DESCRICAO,
                 row.CARGA_HORARIA,
+                row.INSTRUTOR,
+                row.NIVEL,
+                row.VAGAS,
                 row.VALOR
             );
             listCursos.push(curso);

@@ -6,13 +6,19 @@ export default class Curso {
     #nome;
     #descricao;
     #cargaHoraria;
+    #instrutor;
+    #nivel;
+    #vagas;
     #valor;
 
-    constructor(id = 0, nome = "", descricao = "", cargaHoraria = 0, valor = 0.0) {
+    constructor(id = 0, nome = "", descricao = "", cargaHoraria = 0, instrutor = "", nivel = "", vagas = 0, valor = 0.0) {
         this.#id = id;
         this.#nome = nome;
         this.#descricao = descricao;
         this.#cargaHoraria = cargaHoraria;
+        this.#instrutor = instrutor;
+        this.#nivel = nivel;
+        this.#vagas = vagas;
         this.#valor = valor;
 
     } get id() {
@@ -39,6 +45,24 @@ export default class Curso {
     set cargaHoraria(cargaHoraria) {
         this.#cargaHoraria = cargaHoraria;
     }
+    get instrutor(){
+        return this.#instrutor;
+    }
+    set instrutor(instrutor){
+        this.#instrutor = instrutor;
+    }
+    get nivel(){
+        return this.#nivel;
+    }
+    set nivel(nivel){
+        this.#nivel = nivel;
+    }
+    get vagas(){
+        return this.#vagas;
+    }
+    set vagas(vagas){
+        this.#vagas = vagas;
+    }
     get valor() {
         return this.#valor;
     }
@@ -51,6 +75,9 @@ export default class Curso {
         Nome: ${this.#nome}\n \n 
         Descrição: ${this.#descricao}\n \n 
         Carga Horária: ${this.#cargaHoraria}\n \n 
+        Instrutor: ${this.#instrutor}\n \n
+        Nível: ${this.#nivel} \n \n
+        Vagas: ${this.#vagas} \n \n
         Valor: ${this.#valor}\n`;
     }
 
@@ -60,6 +87,9 @@ export default class Curso {
             nome: this.#nome,
             descricao: this.#descricao,
             cargaHoraria: this.#cargaHoraria,
+            instrutor: this.#instrutor,
+            nivel: this.#nivel,
+            vagas: this.#vagas,
             valor: this.#valor
         };
     }
