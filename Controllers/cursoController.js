@@ -1,12 +1,12 @@
 import Curso from "../Models/curso.js";
-export default class CursoController {
 
+export default class CursoController {
 
     gravar(requisicao, resposta) {
         if (requisicao.method === "POST" && requisicao.is("application/json")) {
             const dados = requisicao.body;
-            if (dados.id && dados.nome && dados.descricao && dados.cargaHoraria && dados.valor) {
-                const curso = new Curso(dados.id, dados.nome, dados.descricao, dados.cargaHoraria, dados.valor);
+            if (dados.id && dados.nome && dados.descricao && dados.cargaHoraria && dados.instrutor && dados.nivel && dados.vagas && dados.valor) {
+                const curso = new Curso(dados.id, dados.nome, dados.descricao, dados.cargaHoraria, dados.instrutor, dados.nivel, dados.vagas, dados.valor);
                 curso.gravar()
                     .then(() => {
                         return resposta.status(200).json({
@@ -42,8 +42,8 @@ export default class CursoController {
             const id = requisicao.params.id ? parseInt(requisicao.params.id, 10) : null; // converte id para Inteiro, não dá mais eroo de value.tostring() no mysql
 
 
-            if (dados.id && dados.nome && dados.descricao && dados.cargaHoraria && dados.valor) {
-                const curso = new Curso(id, dados.nome, dados.descricao, dados.cargaHoraria, dados.valor);
+            if (dados.id && dados.nome && dados.descricao && dados.cargaHoraria && dados.instrutor && dados.nivel && dados.vagas && dados.valor) {
+                const curso = new Curso(dados.id, dados.nome, dados.descricao, dados.cargaHoraria, dados.instrutor, dados.nivel, dados.vagas, dados.valor);
                 curso.alterar()
                     .then(() => {
                         return resposta.status(200).json({
